@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mustafa Kemal Atatürk — Dijital Sergi ve Hayat Yolculuğu</title>
+  <title>Fotoğraflarla Atatürk — Dijital Sergi</title>
   <style>
     :root {
-      --bg: #f6f3ec;
-      --paper: #fffdf9;
-      --ink: #132238;
-      --muted: #52637a;
-      --navy: #1c314e;
-      --gold: #c5922e;
-      --gold-soft: rgba(197, 146, 46, 0.14);
-      --line: rgba(19, 34, 56, 0.12);
-      --radius: 20px;
-      --shadow: 0 18px 40px rgba(19, 34, 56, 0.08);
+      --bg: #f6f4ef;
+      --surface: #ffffff;
+      --ink: #1b222c;
+      --muted: #4b5563;
+      --accent: #1f3a5f;
+      --accent-soft: #e7edf4;
+      --border: #e3dfd5;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(20, 30, 45, 0.06);
+      --shadow-hover: 0 18px 40px rgba(20, 30, 45, 0.14);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     * {
@@ -29,845 +30,608 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      background:
-        radial-gradient(circle at 88% 8%, rgba(197, 146, 46, 0.14), transparent 36%),
-        radial-gradient(circle at 10% 20%, rgba(28, 49, 78, 0.07), transparent 40%),
-        var(--bg);
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: linear-gradient(180deg, #f8f6f1 0%, #efece3 100%);
       color: var(--ink);
-      line-height: 1.65;
-      min-height: 100vh;
-    }
-
-    .progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 4px;
-      width: 0%;
-      background: linear-gradient(90deg, var(--navy), var(--gold));
-      z-index: 250;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
     header {
-      position: sticky;
-      top: 0;
-      z-index: 120;
-      backdrop-filter: blur(14px);
-      background: rgba(246, 243, 236, 0.86);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav {
-      max-width: 1180px;
+      max-width: 1160px;
       margin: 0 auto;
-      padding: 14px 22px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
+      padding: 64px 24px 36px;
+      text-align: center;
+      animation: fadeUp 0.9s var(--ease) both;
     }
 
-    .logo {
-      font-weight: 800;
-      font-size: 1rem;
-      color: var(--ink);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-badge {
-      width: 30px;
-      height: 30px;
-      border-radius: 10px;
-      background: var(--navy);
-      color: #f8d586;
-      display: grid;
-      place-items: center;
-      font-size: 0.9rem;
-    }
-
-    .nav-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn {
-      border: 1px solid var(--line);
-      background: var(--paper);
-      color: var(--ink);
-      padding: 9px 15px;
-      border-radius: 999px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .btn:hover {
-      border-color: var(--gold);
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: var(--navy);
-      color: #fffdf9;
-      border-color: var(--navy);
-    }
-
-    .btn-primary:hover {
-      background: #274269;
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: #fffdf9;
-      border-color: var(--gold);
-    }
-
-    /* Hero */
-    .hero {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 46px 22px 24px;
-      display: grid;
-      grid-template-columns: 1.35fr 0.95fr;
-      gap: 26px;
-      align-items: stretch;
-    }
-
-    .hero-card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 34px;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .kicker {
+    .tag {
       display: inline-block;
-      width: fit-content;
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 1.1px;
-      text-transform: uppercase;
-      color: #966912;
-      background: var(--gold-soft);
-      padding: 6px 12px;
+      padding: 6px 16px;
       border-radius: 999px;
-      margin-bottom: 14px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
     }
 
     h1 {
-      font-size: clamp(2rem, 3.8vw, 2.95rem);
-      line-height: 1.15;
+      font-size: clamp(2.1rem, 4.5vw, 3.3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
       color: var(--ink);
       margin-bottom: 14px;
     }
 
-    .hero-card p {
+    .subtitle {
+      max-width: 720px;
+      margin: 0 auto 32px;
       color: var(--muted);
-      font-size: 1rem;
-      margin-bottom: 22px;
+      font-size: 1.05rem;
     }
 
-    .side-panel {
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink);
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+    }
+
+    .filter-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 6px 18px rgba(27, 34, 44, 0.08);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 8px 20px rgba(31, 58, 95, 0.22);
+    }
+
+    main {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 16px 24px 64px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(22px);
+      transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), opacity 0.55s var(--ease);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card.hidden {
+      display: none;
+    }
+
+    .media-box {
+      position: relative;
+      height: 240px;
+      background: #e6e1d5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .media-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
+      cursor: pointer;
+    }
+
+    .card:hover .media-box img {
+      transform: scale(1.04);
+    }
+
+    .placeholder-note {
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .upload-label {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      background: rgba(27, 34, 44, 0.85);
+      color: #fff;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .upload-label:hover {
+      background: var(--accent);
+      transform: scale(1.04);
+    }
+
+    .upload-label input {
+      display: none;
+    }
+
+    .card-body {
+      padding: 22px 24px 26px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cat-pill {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .card h2 {
+      font-size: 1.18rem;
+      margin-bottom: 12px;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+
+    .reason-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .card p {
+      font-size: 0.94rem;
+      color: var(--muted);
+      text-align: justify;
+    }
+
+    /* Kronoloji Bölümü */
+    .timeline-section {
+      margin-top: 56px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-header {
+      margin-bottom: 24px;
+    }
+
+    .timeline-header h3 {
+      font-size: 1.4rem;
+      color: var(--ink);
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-header p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 26px;
+      border-left: 3px solid var(--accent);
       display: flex;
       flex-direction: column;
       gap: 18px;
     }
 
-    .quote-card {
-      background: linear-gradient(145deg, #172840, #233b5d);
-      color: #fffdf9;
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: var(--shadow);
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .quote-card blockquote {
-      font-size: 1.05rem;
-      font-style: italic;
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-
-    .quote-card span {
-      color: #f4cb73;
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .stat-box {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 16px;
-      text-align: center;
-      box-shadow: var(--shadow);
-    }
-
-    .stat-box strong {
-      display: block;
-      font-size: 1.25rem;
-      color: var(--navy);
-    }
-
-    .stat-box small {
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 600;
-    }
-
-    main {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 16px 22px 90px;
-    }
-
-    section {
-      margin-top: 56px;
-    }
-
-    .sec-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 12px;
-      margin-bottom: 22px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      color: var(--ink);
-    }
-
-    .sec-sub {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-
-    .search {
-      flex: 1 1 250px;
-      padding: 11px 16px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: var(--paper);
-      color: var(--ink);
-      font-size: 0.92rem;
-      outline: none;
-    }
-
-    .search:focus {
-      border-color: var(--gold);
-    }
-
-    .pill {
-      border: 1px solid var(--line);
-      background: var(--paper);
-      color: var(--muted);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .pill.active,
-    .pill:hover {
-      background: var(--navy);
-      color: #fffdf9;
-      border-color: var(--navy);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 22px;
-    }
-
-    .exhibit {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.24s ease, box-shadow 0.24s ease;
-    }
-
-    .exhibit:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 24px 46px rgba(19, 34, 56, 0.13);
-    }
-
-    .poster {
+    .timeline-item {
       position: relative;
-      aspect-ratio: 16 / 10;
-      padding: 22px;
-      color: #fffdf9;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      cursor: pointer;
-      overflow: hidden;
+      background: #faf8f4;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
     }
 
-    .poster.theme-a { background: linear-gradient(135deg, #162842, #2b4c7e); }
-    .poster.theme-b { background: linear-gradient(135deg, #2b1d14, #6b4423); }
-    .poster.theme-c { background: linear-gradient(135deg, #14302a, #24574c); }
-
-    .poster-year {
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      color: #f6cf79;
-      text-transform: uppercase;
-    }
-
-    .poster-title {
-      font-size: 1.22rem;
-      font-weight: 800;
-      line-height: 1.25;
-      max-width: 92%;
-    }
-
-    .poster-img {
+    .timeline-item::before {
+      content: "";
       position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 1;
+      left: -34px;
+      top: 20px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--surface);
     }
 
-    .poster-content {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .timeline-year {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 2px 10px;
+      border-radius: 999px;
+      margin-bottom: 6px;
     }
 
-    .poster.has-photo .poster-content {
-      background: linear-gradient(to top, rgba(13, 21, 34, 0.82), rgba(13, 21, 34, 0.15));
-      margin: -22px;
-      padding: 22px;
-    }
-
-    .exhibit-body {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      flex: 1;
-    }
-
-    .tag {
-      font-size: 0.76rem;
-      font-weight: 800;
-      color: #966912;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-    }
-
-    .exhibit-body h3 {
-      font-size: 1.12rem;
+    .timeline-item h4 {
+      font-size: 1.05rem;
       color: var(--ink);
+      margin-bottom: 4px;
     }
 
-    .exhibit-body p {
+    .timeline-item p {
+      font-size: 0.93rem;
       color: var(--muted);
-      font-size: 0.92rem;
-      flex: 1;
     }
 
-    .exhibit-foot {
-      padding-top: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* Kronoloji */
-    .life-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-      gap: 16px;
-    }
-
-    .life-card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-top: 4px solid var(--gold);
-      border-radius: 18px;
-      padding: 20px;
+    .message-box {
+      margin-top: 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 6px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 32px 36px;
       box-shadow: var(--shadow);
     }
 
-    .life-year {
-      font-size: 0.85rem;
-      font-weight: 800;
-      color: #966912;
-      margin-bottom: 6px;
-      display: block;
-    }
-
-    .life-card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 8px;
+    .message-box h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
       color: var(--ink);
     }
 
-    .life-card p {
-      font-size: 0.91rem;
+    .message-box p {
       color: var(--muted);
+      font-size: 1rem;
     }
 
-    /* Modal */
-    .modal {
+    .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(13, 21, 34, 0.78);
+      background: rgba(15, 20, 28, 0.86);
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      z-index: 350;
-    }
-
-    .modal.open {
-      display: flex;
-    }
-
-    .modal-box {
-      max-width: 720px;
-      width: 100%;
-      background: var(--paper);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
-    }
-
-    .modal-body {
       padding: 24px;
+      z-index: 999;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
-    .modal-top {
+    .lightbox.open {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 12px;
+      opacity: 1;
     }
 
-    .modal-nav {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 86vh;
+      border-radius: 12px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
     }
 
-    body.sunum header,
-    body.sunum .toolbar,
-    body.sunum .floating-up {
-      display: none !important;
-    }
-
-    .floating-up {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 180;
-    }
-
-    @media (max-width: 860px) {
-      .hero {
-        grid-template-columns: 1fr;
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
 </head>
 <body>
-  <div class="progress" id="progress"></div>
-
   <header>
-    <div class="nav">
-      <a href="#" class="logo">
-        <span class="logo-badge">✦</span>
-        <span>Atatürk Dijital Sergi</span>
-      </a>
-      <div class="nav-actions">
-        <a href="#sergi" class="btn">Sergi Vitrinleri</a>
-        <a href="#hayati" class="btn">Atatürk'ün Hayatı</a>
-        <button type="button" class="btn btn-gold" id="sunumBtn">Sunum Modu</button>
-      </div>
+    <span class="tag">DİJİTAL FOTOĞRAF SERGİSİ</span>
+    <h1>Fotoğraflarla Mustafa Kemal Atatürk</h1>
+    <p class="subtitle">
+      Yaşam evreleri ve öne çıkan liderlik yönlerine göre düzenlenmiş seçki; her kare, Atatürk’ün tarihsel duruşunu, yenilikçi vizyonunu ve insani yönünü ayrıntılı gerekçelerle sunar.
+    </p>
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Tümü (9)</button>
+      <button class="filter-btn" data-filter="mucadele">Millî Mücadele ve Liderlik</button>
+      <button class="filter-btn" data-filter="cumhuriyet">Cumhuriyet ve İnkılaplar</button>
+      <button class="filter-btn" data-filter="halk">Halk Adamı ve Başöğretmen</button>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-card">
-      <span class="kicker">Etkileşimli Ders & Sunum Çalışması</span>
-      <h1>Mustafa Kemal Atatürk: Tarih, İdeal ve Yaşam Kronolojisi</h1>
-      <p>
-        Sergi vitrinlerini ve gerekçe metinlerini inceleyebilir, Atatürk'ün yaşamındaki önemli dönemleri
-        filtreleyebilir ve tek tıkla sunum moduna geçerek sınıf sunumunu akıcı biçimde yönetebilirsin.
-      </p>
-      <div class="toolbar" style="margin-bottom:0;">
-        <a href="#sergi" class="btn btn-primary">Sergiyi Başlat</a>
-        <a href="#hayati" class="btn">Hayatını İncele</a>
-      </div>
-    </div>
-
-    <div class="side-panel">
-      <div class="quote-card">
-        <blockquote>
-          "İstikbal göklerdedir; göklerini koruyamayan milletler yarınlarından asla emin olamazlar."
-        </blockquote>
-        <span>— Mustafa Kemal Atatürk</span>
-      </div>
-      <div class="stats-row">
-        <div class="stat-box">
-          <strong>9</strong>
-          <small>Sergi Başlığı</small>
-        </div>
-        <div class="stat-box">
-          <strong>1881–1938</strong>
-          <small>Yaşam Çizgisi</small>
-        </div>
-        <div class="stat-box">
-          <strong>Sunum</strong>
-          <small>Odak Modu</small>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <main>
-    <section id="sergi">
-      <div class="sec-header">
-        <div>
-          <h2>Sergi Vitrinleri ve Gerekçeler</h2>
-          <p class="sec-sub">Her başlığın seçilme gerekçesini kartlardan veya tam ekran pencereden inceleyebilirsin.</p>
+    <div class="grid" id="gallery">
+      <!-- 1 -->
+      <article class="card" data-cat="mucadele" data-id="foto1">
+        <div class="media-box">
+          <div class="placeholder-note">1. Fotoğraf: Samsun’a Çıkış ve Kurtuluşun Başlangıcı</div>
+          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
         </div>
-        <span class="sec-sub" id="sayac"></span>
-      </div>
+        <div class="card-body">
+          <span class="cat-pill">Millî Mücadele ve Liderlik</span>
+          <h2>Samsun’a Çıkış ve Kurtuluş Mücadelesinin Başlaması (1919)</h2>
+          <span class="reason-title">Bu fotoğraf Atatürk’ü neden en iyi anlatıyor?</span>
+          <p>Bu fotoğraf, umudun tükendiği bir dönemde bir milletin kaderini değiştirme cesaretini tek bir karede özetler. Ülkenin işgal altında olduğu en zor şartlarda bile teslimiyeti kabul etmeyip bağımsızlık ateşini yakmak için yola çıkması, onun kararlılığını, vatan sevgisini ve sorumluluk alma gücünü gösterir. Ziyaretçiler bu kareye baktığında yalnızca tarihi bir yolculuğu değil, imkânsız görüneni başarma iradesini görür.</p>
+        </div>
+      </article>
 
-      <div class="toolbar">
-        <input type="text" id="arama" class="search" placeholder="Başlık, yıl veya gerekçe içinde ara..." />
-        <div id="filtreler" style="display:flex; flex-wrap:wrap; gap:8px;"></div>
-      </div>
+      <!-- 2 -->
+      <article class="card" data-cat="mucadele" data-id="foto2">
+        <div class="media-box">
+          <div class="placeholder-note">2. Fotoğraf: Kocatepe’de Büyük Taarruz Öncesi</div>
+          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+        </div>
+        <div class="card-body">
+          <span class="cat-pill">Millî Mücadele ve Liderlik</span>
+          <h2>Kocatepe’de Strateji ve Kararlılık (1922)</h2>
+          <span class="reason-title">Bu fotoğraf Atatürk’ü neden en iyi anlatıyor?</span>
+          <p>Kocatepe fotoğrafı, Mustafa Kemal’in askerî dehasını, soğukkanlılığını ve stratejik sabrını en güçlü şekilde yansıtan karedir. Yıllar süren hazırlığın ardından verilecek en kritik kararın eşiğinde, gösterişten uzak ama son derece kararlı duruşu onun liderlik karakterini net biçimde ortaya koyar. Atatürk’ü dünyaya tanıtırken bu fotoğrafın yer alması, onun savaş meydanlarında bile aklıyla, planıyla ve sarsılmaz iradesiyle hareket eden bir komutan olduğunu kanıtlar.</p>
+        </div>
+      </article>
 
-      <div class="grid" id="sergiGrid"></div>
+      <!-- 3 -->
+      <article class="card" data-cat="mucadele" data-id="foto3">
+        <div class="media-box">
+          <div class="placeholder-note">3. Fotoğraf: Cephede Mehmetçikle Omuz Omuza</div>
+          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+        </div>
+        <div class="card-body">
+          <span class="cat-pill">Millî Mücadele ve Liderlik</span>
+          <h2>Cephede Mehmetçikle Omuz Omuza Liderlik</h2>
+          <span class="reason-title">Bu fotoğraf Atatürk’ü neden en iyi anlatıyor?</span>
+          <p>Gerçek bir liderin emirleri uzaktan veren değil, zorluğu askerleriyle birlikte göğüsleyen kişi olduğunu gösterdiği için bu kare büyük önem taşır. Cephe hattında askerlerinin yanında durması, onların moralini yükseltmesi ve sahadaki her ayrıntıyı bizzat takip etmesi, kendisine duyulan sonsuz güvenin kaynağını açıklar. Bu fotoğraf, Atatürk’ün liderliğinin korkuya değil, ortak mücadeleye ve derin bir dayanışmaya dayandığını anlatır.</p>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="card" data-cat="cumhuriyet" data-id="foto4">
+        <div class="media-box">
+          <div class="placeholder-note">4. Fotoğraf: TBMM’nin Açılışı ve Cumhuriyetin İlanı</div>
+          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+        </div>
+        <div class="card-body">
+          <span class="cat-pill">Cumhuriyet ve İnkılaplar</span>
+          <h2>TBMM’nin Açılışı ve Cumhuriyetin İlanı (1920 – 1923)</h2>
+          <span class="reason-title">Bu fotoğraf Atatürk’ü neden en iyi anlatıyor?</span>
+          <p>Bu kare, askerî bir zaferin ardından yönetimi tek elde toplamak yerine egemenliği doğrudan millete devreden demokratik vizyonu temsil eder. Bir komutanın savaşı kazandıktan sonra yeni, çağdaş ve hukuka dayalı bir devlet kurma iradesi göstermesi dünya tarihinde nadir rastlanan bir durumdur. Fotoğraf, Atatürk’ün yalnızca kurtarıcı değil, aynı zamanda köklü bir devlet kurucusu olduğunu ziyaretçilere en açık biçimde anlatır.</p>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="card" data-cat="cumhuriyet" data-id="foto5">
+        <div class="media-box">
+          <div class="placeholder-note">5. Fotoğraf: Kara Tahta Başında Başöğretmen</div>
+          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+        </div>
+        <div class="card-body">
+          <span class="cat-pill">Cumhuriyet ve İnkılaplar</span>
+          <h2>Yeni Türk Harflerini Kara Tahta Başında Tanıtırken (1928)</h2>
+          <span class="reason-title">Bu fotoğraf Atatürk’ü neden en iyi anlatıyor?</span>
+          <p>Bir devlet başkanının eline tebeşir alıp meydanlarda ve parklarda halkına okuma-yazma öğretmesi, inkılapların kâğıt üzerinde kalmadığının en canlı kanıtıdır. Bu fotoğraf, cehaletle mücadeleyi en az cephedeki savaş kadar önemli gören bir liderin eğitime ve bilime verdiği değeri gösterir. Atatürk’ü dünyaya tanıtırken bu karenin seçilmesi, onun toplumu bilgiyle ve akılla yükseltmeyi hedefleyen çağdaşlaşma anlayışını en sade ve etkileyici dille ortaya koyar.</p>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="card" data-cat="cumhuriyet" data-id="foto6">
+        <div class="media-box">
+          <div class="placeholder-note">6. Fotoğraf: Çağdaşlaşma, Sanayi ve Tarım Hamleleri</div>
+          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+        </div>
+        <div class="card-body">
+          <span class="cat-pill">Cumhuriyet ve İnkılaplar</span>
+          <h2>Çağdaşlaşma, Sanayi ve Tarım Hamleleri</h2>
+          <span class="reason-title">Bu fotoğraf Atatürk’ü neden en iyi anlatıyor?</span>
+          <p>Siyasi bağımsızlığın ancak ekonomik ve bilimsel üretimle kalıcı olabileceğini bilen Atatürk’ün kalkınma vizyonunu bu karede doğrudan görürüz. Çorak bir arazinin modern tarım alanına dönüştürülmesinden yerli sanayi yatırımlarına kadar her adımı bizzat incelemesi, onun geleceği bugünden inşa eden ileri görüşlülüğünü yansıtır. Ziyaretçiler bu fotoğrafla Atatürk’ün ülkesini her alanda kendi kendine yeten modern bir devlet yapma hedefini net olarak kavrar.</p>
+        </div>
+      </article>
+
+      <!-- 7 -->
+      <article class="card" data-cat="halk" data-id="foto7">
+        <div class="media-box">
+          <div class="placeholder-note">7. Fotoğraf: Yurt Gezilerinde Halkla İç İçe</div>
+          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+        </div>
+        <div class="card-body">
+          <span class="cat-pill">Halk Adamı ve Başöğretmen</span>
+          <h2>Yurt Gezilerinde Halkla İç İçe Sohbet Ederken</h2>
+          <span class="reason-title">Bu fotoğraf Atatürk’ü neden en iyi anlatıyor?</span>
+          <p>Bu fotoğraf, protokol duvarlarının arkasına saklanmayan, vatandaşının gözünün içine bakarak derdini dinleyen samimi bir devlet adamını gösterir. Köylünün, esnafın ve işçinin düşüncelerine değer vermesi, onun halktan kopuk bir yönetici değil, milletinin içinden çıkan bir lider olduğunu kanıtlar. Yabancı bir ziyaretçi bu kareye baktığında, halkıyla arasında sevgi ve saygıya dayalı güçlü bir bağ kurmuş gerçek bir halk önderi görür.</p>
+        </div>
+      </article>
+
+      <!-- 8 -->
+      <article class="card" data-cat="halk" data-id="foto8">
+        <div class="media-box">
+          <div class="placeholder-note">8. Fotoğraf: Çocuklarla ve Gençlerle Bir Arada</div>
+          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+        </div>
+        <div class="card-body">
+          <span class="cat-pill">Halk Adamı ve Başöğretmen</span>
+          <h2>Çocuklarla ve Gençlerle Bir Arada</h2>
+          <span class="reason-title">Bu fotoğraf Atatürk’ü neden en iyi anlatıyor?</span>
+          <p>Çocuklara dünyada ilk kez resmi bir bayram armağan eden ve kurduğu Cumhuriyeti gençlere emanet eden bir liderin geleceğe olan güveni bu fotoğrafta somutlaşır. Çocuklarla konuşurken yüzündeki içten gülümseme ve onlara verdiği önem, sert otoriter figürlerin aksine şefkatli ve insani yönünü öne çıkarır. Bu kare, Atatürk’ün fikirlerinin neden nesiller boyunca canlı kaldığını ve gençliğe duyduğu inancın ne kadar derin olduğunu en doğal haliyle anlatır.</p>
+        </div>
+      </article>
+
+      <!-- 9 -->
+      <article class="card" data-cat="halk" data-id="foto9">
+        <div class="media-box">
+          <div class="placeholder-note">9. Fotoğraf: Gündelik Yaşamdan, Doğa ve Sanat İçinde</div>
+          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+        </div>
+        <div class="card-body">
+          <span class="cat-pill">Halk Adamı ve Başöğretmen</span>
+          <h2>Gündelik Yaşamdan, Doğa ve Sanat İçindeki Hâli</h2>
+          <span class="reason-title">Bu fotoğraf Atatürk’ü neden en iyi anlatıyor?</span>
+          <p>Tarih kitaplarında genellikle resmî üniformalar veya fraklar içinde görülen Atatürk’ün sade, doğayı seven ve sanata değer veren insan yönünü göstermek için bu fotoğraf vazgeçilmezdir. Yoğun devlet işlerinin arasında bile doğaya saygı duyan, ağacı kesmek yerine köşkü yürüten ve sanatsız kalan bir milletin hayat damarlarından birinin kopacağını savunan ince ruhunu yansıtır. Bu son kare, ziyaretçinin zihnindeki Atatürk portresini tamamlayarak onu hem büyük bir lider hem de çok yönlü bir insan olarak tanıtır.</p>
+        </div>
+      </article>
+    </div>
+
+    <section class="timeline-section" id="kronoloji-bolumu">
+      <div class="timeline-header">
+        <span class="tag">KRONOLOJİK SIRA</span>
+        <h3>Atatürk’ün Hayatı (1881 – 1938)</h3>
+        <p>Doğumundan vefatına kadar yaşamındaki dönüm noktalarının tarih sırasına göre özeti.</p>
+      </div>
+      <div class="timeline" id="kronoloji"></div>
     </section>
 
-    <section id="hayati">
-      <div class="sec-header">
-        <div>
-          <h2>Atatürk'ün Hayatı</h2>
-          <p class="sec-sub">Dönemlere göre ayrılmış temel yaşam aşamaları.</p>
-        </div>
-      </div>
-
-      <div class="toolbar" id="donemler"></div>
-      <div class="life-grid" id="hayatGrid"></div>
+    <section class="message-box">
+      <h3>Bu Genel Ağ Adresinin Amacı ve Ziyaretçilere Mesajı</h3>
+      <p>
+        Bu dijital sergi, Mustafa Kemal Atatürk’ü yalnızca tarih kitaplarındaki başarılarıyla değil; liderliği, yenilikçi vizyonu ve insani yönüyle bir bütün olarak dünyaya tanıtmak amacıyla hazırlanmıştır. Seçilen her fotoğraf, onun bir milleti küllerinden yeniden ayağa kaldırırken akla, bilime, eğitime ve insan sevgisine nasıl dayandığını göstermektedir. Sitemizi ziyaret eden herkesin, bu kareler aracılığıyla Atatürk’ün evrensel değerlerini daha yakından tanımasını ve geleceğe dair ilham almasını umuyoruz.
+      </p>
     </section>
   </main>
 
-  <div class="modal" id="modal" role="dialog" aria-modal="true">
-    <div class="modal-box">
-      <div class="modal-body">
-        <div class="modal-top">
-          <div>
-            <span class="tag" id="mTag"></span>
-            <h3 id="mBaslik" style="font-size:1.35rem; margin-top:4px;"></h3>
-          </div>
-          <button type="button" class="btn" id="mKapat">Kapat</button>
-        </div>
-        <p id="mMetin" style="color:var(--muted); font-size:0.98rem;"></p>
-        <div class="modal-nav">
-          <button type="button" class="btn" id="oncekiBtn">← Önceki</button>
-          <button type="button" class="btn btn-primary" id="sonrakiBtn">Sonraki →</button>
-        </div>
-      </div>
-    </div>
+  <div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+    <img id="lightbox-img" src="" alt="Büyük Görünüm" />
   </div>
 
-  <button type="button" class="btn btn-primary floating-up" id="yukariBtn">↑ Yukarı</button>
-
   <script>
-    // Kendi fotoğraflarını depoya foto1.jpg ... foto9.jpg olarak yüklersen "" yerine "foto1.jpg" yazabilirsin.
-    const KARTLAR = [
-      {
-        yil: "1881 – 1905",
-        kategori: "Eğitim & Gençlik",
-        tema: "theme-a",
-        foto: "",
-        baslik: "1. Selanik ve Askeri Eğitim Yılları",
-        gerekce: "Atatürk'ün farklı kültürlerin bir arada bulunduğu Selanik'te yetişmesini ve askeri okullarda kazandığı analitik düşünme ile liderlik temelini vurgulamak için eklendi."
-      },
-      {
-        yil: "1915",
-        kategori: "Milli Mücadele",
-        tema: "theme-b",
-        foto: "",
-        baslik: "2. Çanakkale Cephesi ve Anafartalar",
-        gerekce: "Cephedeki hızlı karar alma yeteneğini, askerleriyle kurduğu güven bağını ve savunma hattının yönünü değiştiren askeri öngörüsünü göstermek amacıyla seçildi."
-      },
-      {
-        yil: "19 Mayıs 1919",
-        kategori: "Milli Mücadele",
-        tema: "theme-b",
-        foto: "",
-        baslik: "3. Samsun'a Çıkış ve Kurtuluş İradesi",
-        gerekce: "Dağınık direniş çabalarını ortak bir milli mücadele planında buluşturan tarihi başlangıcı temsil ettiği için sergiye dahil edildi."
-      },
-      {
-        yil: "Ağustos 1922",
-        kategori: "Milli Mücadele",
-        tema: "theme-b",
-        foto: "",
-        baslik: "4. Başkomutanlık ve Büyük Taarruz",
-        gerekce: "Vatan topraklarının düşman işgalinden kurtarılmasında belirleyici rol oynayan stratejik harekâtı ve millet-ordu bütünleşmesini anlatmak için seçildi."
-      },
-      {
-        yil: "29 Ekim 1923",
-        kategori: "Cumhuriyet & İnkılaplar",
-        tema: "theme-c",
-        foto: "",
-        baslik: "5. Cumhuriyet'in İlanı",
-        gerekce: "Egemenliğin millete dayandırıldığı modern yönetim anlayışının resmileşmesini ve yeni devlet düzeninin temelini simgelediği için yer aldı."
-      },
-      {
-        yil: "1928",
-        kategori: "Eğitim & Çağdaşlaşma",
-        tema: "theme-a",
-        foto: "",
-        baslik: "6. Harf İnkılabı ve Millet Mektepleri",
-        gerekce: "Okuma-yazma seferberliğini hızlandıran ve eğitimi toplumun geneline yayan kültürel dönüşümü göstermek için seçildi."
-      },
-      {
-        yil: "1930'lar",
-        kategori: "Cumhuriyet & İnkılaplar",
-        tema: "theme-c",
-        foto: "",
-        baslik: "7. Ekonomik Kalkınma ve Sanayi Hamlesi",
-        gerekce: "Tam bağımsızlığın yalnızca askeri değil, üretim, sanayi, demiryolu ve kurum inşasıyla da desteklenmesi gerektiği vizyonunu yansıtır."
-      },
-      {
-        yil: "1934",
-        kategori: "Eğitim & Çağdaşlaşma",
-        tema: "theme-a",
-        foto: "",
-        baslik: "8. Toplumsal Eşitlik ve Hukuk Reformları",
-        gerekce: "Hukuk birliği, eğitimde fırsat eşitliği ve yurttaşlık haklarıyla çağdaş toplum yapısının güçlendirilmesini anlatmak için eklendi."
-      },
-      {
-        yil: "1933 – 1938",
-        kategori: "Cumhuriyet & İnkılaplar",
-        tema: "theme-c",
-        foto: "",
-        baslik: "9. 10. Yıl Vizyonu ve Kalıcı Miras",
-        gerekce: "Cumhuriyetin kazanımlarını geleceğe taşıma sorumluluğunu ve akıl ile bilime dayalı mirası özetlemek amacıyla serginin kapanış kartı olarak seçildi."
-      }
+    const KRONOLOJI_OLAYLARI = [
+      { yil: "1881", baslik: "Selanik'te Doğumu", aciklama: "Ali Rıza Efendi ve Zübeyde Hanım'ın oğlu olarak Selanik'te dünyaya geldi." },
+      { yil: "1886–1893", baslik: "İlkokul ve Selanik Askeri Rüştiyesi", aciklama: "İlköğrenimine başladı, ardından askeri okula geçti ve 'Kemal' adını aldı." },
+      { yil: "1895–1899", baslik: "Manastır Askeri İdadisi", aciklama: "Lise öğrenimini Manastır'da tamamladı; tarih, edebiyat ve hitabete ilgi duydu." },
+      { yil: "1899–1905", baslik: "Harp Okulu ve Harp Akademisi", aciklama: "İstanbul'da Harp Okulu ve Harp Akademisi'nden kurmay yüzbaşı rütbesiyle mezun oldu." },
+      { yil: "1911", baslik: "Trablusgarp Savaşı", aciklama: "Osmanlı topraklarını savunmak için gönüllü subay olarak Trablusgarp'a gitti ve Tobruk'ta görev aldı." },
+      { yil: "1915", baslik: "Çanakkale Cephesi", aciklama: "Anafartalar Grup Komutanı olarak Conkbayırı ve Anafartalar'da savunma hattını başarıyla yönetti." },
+      { yil: "19 Mayıs 1919", baslik: "Samsun'a Çıkış", aciklama: "Millî Mücadele'yi başlatmak üzere Samsun'a çıktı." },
+      { yil: "23 Nisan 1920", baslik: "TBMM'nin Açılışı", aciklama: "Ankara'da Türkiye Büyük Millet Meclisi açıldı; Mustafa Kemal Meclis Başkanı seçildi." },
+      { yil: "Ağustos – Eylül 1922", baslik: "Büyük Taarruz ve Başkomutanlık Meydan Muharebesi", aciklama: "Kurtuluş Savaşı'nın askerî zaferle sonuçlanmasını sağlayan büyük harekât yönetildi." },
+      { yil: "29 Ekim 1923", baslik: "Cumhuriyet'in İlanı", aciklama: "Cumhuriyet ilan edildi ve Mustafa Kemal Atatürk Türkiye Cumhuriyeti'nin ilk Cumhurbaşkanı oldu." },
+      { yil: "1924–1934", baslik: "İnkılaplar ve Çağdaşlaşma Dönemi", aciklama: "Tevhid-i Tedrisat, Medeni Kanun, Harf İnkılabı, Türk Dil ve Tarih kurumları ve seçme-seçilme hakları gibi köklü adımlar atıldı." },
+      { yil: "10 Kasım 1938", baslik: "Vefatı", aciklama: "İstanbul Dolmabahçe Sarayı'nda hayata gözlerini yumdu; daha sonra naaşı Anıtkabir'e defnedildi." }
     ];
 
-    const HAYAT = [
-      { yil: "1881", donem: "1881–1918", baslik: "Selanik'te Doğumu", metin: "Ali Rıza Efendi ve Zübeyde Hanım'ın oğlu olarak Selanik'te doğdu." },
-      { yil: "1893–1905", donem: "1881–1918", baslik: "Askeri Okul ve Akademi Yılları", metin: "Selanik, Manastır, Harp Okulu ve Harp Akademisi eğitimlerini tamamlayarak kurmay subay oldu." },
-      { yil: "1915", donem: "1881–1918", baslik: "Çanakkale Savunması", metin: "Conkbayırı ve Anafartalar'daki komutanlığıyla Çanakkale'de öne çıktı." },
-      { yil: "19 Mayıs 1919", donem: "1919–1923", baslik: "Milli Mücadele'nin Başlangıcı", metin: "Samsun'a çıkarak kongreler ve teşkilatlanma süreciyle kurtuluş mücadelesini yönetti." },
-      { yil: "23 Nisan 1920", donem: "1919–1923", baslik: "TBMM'nin Açılması", metin: "Ankara'da Büyük Millet Meclisi açıldı; milli irade meclis çatısı altında toplandı." },
-      { yil: "29 Ekim 1923", donem: "1919–1923", baslik: "Cumhuriyet'in İlanı", metin: "Cumhuriyet ilan edildi ve Türkiye Cumhuriyeti'nin ilk Cumhurbaşkanı seçildi." },
-      { yil: "1924–1934", donem: "1923–1938", baslik: "İnkılaplar Dönemi", metin: "Eğitim, hukuk, yazı, ekonomi ve sosyal alanda kapsamlı çağdaşlaşma adımları atıldı." },
-      { yil: "10 Kasım 1938", donem: "1923–1938", baslik: "Aramızdan Ayrılışı", metin: "İstanbul Dolmabahçe Sarayı'nda vefat etti; fikirleri ve eserleri yaşatılmaya devam etti." }
-    ];
+    const kronolojiAlani = document.getElementById("kronoloji");
+    kronolojiAlani.innerHTML = KRONOLOJI_OLAYLARI.map((olay) => `
+      <div class="timeline-item">
+        <span class="timeline-year">${olay.yil}</span>
+        <h4>${olay.baslik}</h4>
+        <p>${olay.aciklama}</p>
+      </div>
+    `).join("");
 
-    let seciliKategori = "Tümü";
-    let seciliDonem = "Tümü";
-    let aktifKartIndex = 0;
-    let gorunenKartlar = [...KARTLAR];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, idx) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add("visible"), idx * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
 
-    const sergiGrid = document.getElementById("sergiGrid");
-    const filtreler = document.getElementById("filtreler");
-    const arama = document.getElementById("arama");
-    const sayac = document.getElementById("sayac");
-    const donemler = document.getElementById("donemler");
-    const hayatGrid = document.getElementById("hayatGrid");
-    const modal = document.getElementById("modal");
+    document.querySelectorAll(".card").forEach((card) => observer.observe(card));
 
-    function filtreleriKur() {
-      const cats = ["Tümü", ...new Set(KARTLAR.map(k => k.kategori))];
-      filtreler.innerHTML = cats.map(c =>
-        `<button type="button" class="pill ${c === seciliKategori ? "active" : ""}" data-cat="${c}">${c}</button>`
-      ).join("");
+    const buttons = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".card");
 
-      filtreler.querySelectorAll(".pill").forEach(btn => {
-        btn.addEventListener("click", () => {
-          seciliKategori = btn.dataset.cat;
-          filtreleriKur();
-          sergiyiRenderla();
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        buttons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        const filter = btn.dataset.filter;
+
+        cards.forEach((card) => {
+          const match = filter === "all" || card.dataset.cat === filter;
+          card.classList.toggle("hidden", !match);
+          if (match) {
+            card.classList.remove("visible");
+            requestAnimationFrame(() => setTimeout(() => card.classList.add("visible"), 40));
+          }
         });
       });
-    }
+    });
 
-    function modalAc(index) {
-      aktifKartIndex = index;
-      const item = gorunenKartlar[aktifKartIndex];
-      if (!item) return;
-      document.getElementById("mTag").textContent = `${item.kategori} • ${item.yil}`;
-      document.getElementById("mBaslik").textContent = item.baslik;
-      document.getElementById("mMetin").textContent = item.gerekce;
-      modal.classList.add("open");
-    }
-
-    function sergiyiRenderla() {
-      const q = arama.value.trim().toLowerCase();
-      gorunenKartlar = KARTLAR.filter(k => {
-        const catOk = seciliKategori === "Tümü" || k.kategori === seciliKategori;
-        const txt = `${k.baslik} ${k.yil} ${k.kategori} ${k.gerekce}`.toLowerCase();
-        return catOk && (!q || txt.includes(q));
-      });
-
-      sayac.textContent = `${gorunenKartlar.length} / ${KARTLAR.length} başlık`;
-
-      if (!gorunenKartlar.length) {
-        sergiGrid.innerHTML = `<p class="sec-sub">Arama veya filtre kriterine uygun başlık bulunamadı.</p>`;
-        return;
+    function renderImage(card, dataUrl) {
+      const box = card.querySelector(".media-box");
+      let img = box.querySelector("img");
+      const note = box.querySelector(".placeholder-note");
+      if (note) note.remove();
+      if (!img) {
+        img = document.createElement("img");
+        img.addEventListener("click", () => {
+          document.getElementById("lightbox-img").src = img.src;
+          document.getElementById("lightbox").classList.add("open");
+        });
+        box.prepend(img);
       }
-
-      sergiGrid.innerHTML = gorunenKartlar.map((k, i) => `
-        <article class="exhibit">
-          <div class="poster ${k.tema} ${k.foto ? "has-photo" : ""}" data-i="${i}">
-            ${k.foto ? `<img class="poster-img" src="${k.foto}" alt="${k.baslik}" />` : ""}
-            <div class="poster-content">
-              <span class="poster-year">${k.yil}</span>
-              <div class="poster-title">${k.baslik}</div>
-            </div>
-          </div>
-          <div class="exhibit-body">
-            <span class="tag">${k.kategori}</span>
-            <h3>${k.baslik}</h3>
-            <p>${k.gerekce}</p>
-            <div class="exhibit-foot">
-              <button type="button" class="btn ac-btn" data-i="${i}">Detay & Slayt</button>
-            </div>
-          </div>
-        </article>
-      `).join("");
-
-      sergiGrid.querySelectorAll(".poster, .ac-btn").forEach(el => {
-        el.addEventListener("click", () => modalAc(Number(el.dataset.i)));
-      });
+      img.src = dataUrl;
     }
 
-    function donemleriKur() {
-      const periods = ["Tümü", "1881–1918", "1919–1923", "1923–1938"];
-      donemler.innerHTML = periods.map(p =>
-        `<button type="button" class="pill ${p === seciliDonem ? "active" : ""}" data-p="${p}">${p}</button>`
-      ).join("");
+    // Daha önce seçilmiş fotoğrafları otomatik yükle
+    cards.forEach((card) => {
+      const saved = localStorage.getItem("ataturk_sergi_" + card.dataset.id);
+      if (saved) renderImage(card, saved);
+    });
 
-      donemler.querySelectorAll(".pill").forEach(btn => {
-        btn.addEventListener("click", () => {
-          seciliDonem = btn.dataset.p;
-          donemleriKur();
-          hayatiRenderla();
-        });
+    // Fotoğraf seçildiğinde hem göster hem tarayıcıya kaydet
+    document.querySelectorAll(".upload-label input").forEach((input) => {
+      input.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const card = input.closest(".card");
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          const dataUrl = ev.target.result;
+          renderImage(card, dataUrl);
+          try {
+            localStorage.setItem("ataturk_sergi_" + card.dataset.id, dataUrl);
+          } catch (err) {
+            console.warn("Depolama sınırı aşıldı, fotoğraf bu oturumda görüntülenecek.");
+          }
+        };
+        reader.readAsDataURL(file);
       });
-    }
-
-    function hayatiRenderla() {
-      const q = arama.value.trim().toLowerCase();
-      const items = HAYAT.filter(h => {
-        const pOk = seciliDonem === "Tümü" || h.donem === seciliDonem;
-        const txt = `${h.yil} ${h.baslik} ${h.metin}`.toLowerCase();
-        return pOk && (!q || txt.includes(q));
-      });
-
-      hayatGrid.innerHTML = items.map(h => `
-        <article class="life-card">
-          <span class="life-year">${h.yil}</span>
-          <h3>${h.baslik}</h3>
-          <p>${h.metin}</p>
-        </article>
-      `).join("");
-    }
-
-    document.getElementById("mKapat").addEventListener("click", () => modal.classList.remove("open"));
-    modal.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("open"); });
-
-    document.getElementById("oncekiBtn").addEventListener("click", () => {
-      if (!gorunenKartlar.length) return;
-      modalAc((aktifKartIndex - 1 + gorunenKartlar.length) % gorunenKartlar.length);
     });
-
-    document.getElementById("sonrakiBtn").addEventListener("click", () => {
-      if (!gorunenKartlar.length) return;
-      modalAc((aktifKartIndex + 1) % gorunenKartlar.length);
-    });
-
-    document.addEventListener("keydown", e => {
-      if (!modal.classList.contains("open")) return;
-      if (e.key === "Escape") modal.classList.remove("open");
-      if (e.key === "ArrowRight") document.getElementById("sonrakiBtn").click();
-      if (e.key === "ArrowLeft") document.getElementById("oncekiBtn").click();
-    });
-
-    arama.addEventListener("input", () => {
-      sergiyiRenderla();
-      hayatiRenderla();
-    });
-
-    document.getElementById("sunumBtn").addEventListener("click", () => {
-      document.body.classList.toggle("sunum");
-    });
-
-    window.addEventListener("scroll", () => {
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      document.getElementById("progress").style.width = `${h > 0 ? (window.scrollY / h) * 100 : 0}%`;
-    });
-
-    document.getElementById("yukariBtn").addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    filtreleriKur();
-    sergiyiRenderla();
-    donemleriKur();
-    hayatiRenderla();
   </script>
 </body>
 </html>

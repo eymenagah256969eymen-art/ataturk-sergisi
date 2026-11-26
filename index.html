@@ -166,38 +166,6 @@
       transform: scale(1.04);
     }
 
-    .placeholder-note {
-      text-align: center;
-      padding: 20px;
-      color: var(--muted);
-      font-size: 0.92rem;
-      font-weight: 500;
-    }
-
-    .upload-label {
-      position: absolute;
-      right: 12px;
-      bottom: 12px;
-      background: rgba(27, 34, 44, 0.85);
-      color: #fff;
-      padding: 7px 14px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      cursor: pointer;
-      backdrop-filter: blur(6px);
-      transition: background 0.25s ease, transform 0.25s ease;
-    }
-
-    .upload-label:hover {
-      background: var(--accent);
-      transform: scale(1.04);
-    }
-
-    .upload-label input {
-      display: none;
-    }
-
     .card-body {
       padding: 22px 24px 26px;
       flex: 1;
@@ -310,11 +278,9 @@
 
   <main>
     <div class="grid" id="gallery">
-      <!-- 1 -->
-      <article class="card" data-cat="mucadele" data-id="foto1">
+      <article class="card" data-cat="mucadele">
         <div class="media-box">
-          <div class="placeholder-note">1. Fotoğraf: Samsun’a Çıkış ve Kurtuluşun Başlangıcı</div>
-          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+          <img src="foto1.jpg" alt="Samsun’a Çıkış ve Kurtuluş Mücadelesinin Başlaması (1919)" />
         </div>
         <div class="card-body">
           <span class="cat-pill">Millî Mücadele ve Liderlik</span>
@@ -324,11 +290,9 @@
         </div>
       </article>
 
-      <!-- 2 -->
-      <article class="card" data-cat="mucadele" data-id="foto2">
+      <article class="card" data-cat="mucadele">
         <div class="media-box">
-          <div class="placeholder-note">2. Fotoğraf: Kocatepe’de Büyük Taarruz Öncesi</div>
-          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+          <img src="foto2.jpeg" alt="Kocatepe’de Strateji ve Kararlılık (1922)" />
         </div>
         <div class="card-body">
           <span class="cat-pill">Millî Mücadele ve Liderlik</span>
@@ -338,11 +302,9 @@
         </div>
       </article>
 
-      <!-- 3 -->
-      <article class="card" data-cat="mucadele" data-id="foto3">
+      <article class="card" data-cat="mucadele">
         <div class="media-box">
-          <div class="placeholder-note">3. Fotoğraf: Cephede Mehmetçikle Omuz Omuza</div>
-          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+          <img src="foto3.jpg" alt="Cephede Mehmetçikle Omuz Omuza Liderlik" />
         </div>
         <div class="card-body">
           <span class="cat-pill">Millî Mücadele ve Liderlik</span>
@@ -352,11 +314,9 @@
         </div>
       </article>
 
-      <!-- 4 -->
-      <article class="card" data-cat="cumhuriyet" data-id="foto4">
+      <article class="card" data-cat="cumhuriyet">
         <div class="media-box">
-          <div class="placeholder-note">4. Fotoğraf: TBMM’nin Açılışı ve Cumhuriyetin İlanı</div>
-          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+          <img src="foto4.jfif" alt="TBMM’nin Açılışı ve Cumhuriyetin İlanı (1920 – 1923)" />
         </div>
         <div class="card-body">
           <span class="cat-pill">Cumhuriyet ve İnkılaplar</span>
@@ -366,11 +326,9 @@
         </div>
       </article>
 
-      <!-- 5 -->
-      <article class="card" data-cat="cumhuriyet" data-id="foto5">
+      <article class="card" data-cat="cumhuriyet">
         <div class="media-box">
-          <div class="placeholder-note">5. Fotoğraf: Kara Tahta Başında Başöğretmen</div>
-          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+          <img src="foto5.jpg" alt="Yeni Türk Harflerini Kara Tahta Başında Tanıtırken (1928)" />
         </div>
         <div class="card-body">
           <span class="cat-pill">Cumhuriyet ve İnkılaplar</span>
@@ -380,11 +338,9 @@
         </div>
       </article>
 
-      <!-- 6 -->
-      <article class="card" data-cat="cumhuriyet" data-id="foto6">
+      <article class="card" data-cat="cumhuriyet">
         <div class="media-box">
-          <div class="placeholder-note">6. Fotoğraf: Çağdaşlaşma, Sanayi ve Tarım Hamleleri</div>
-          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+          <img src="foto6.jfif" alt="Çağdaşlaşma, Sanayi ve Tarım Hamleleri" />
         </div>
         <div class="card-body">
           <span class="cat-pill">Cumhuriyet ve İnkılaplar</span>
@@ -394,11 +350,9 @@
         </div>
       </article>
 
-      <!-- 7 -->
-      <article class="card" data-cat="halk" data-id="foto7">
+      <article class="card" data-cat="halk">
         <div class="media-box">
-          <div class="placeholder-note">7. Fotoğraf: Yurt Gezilerinde Halkla İç İçe</div>
-          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+          <img src="foto7.jpg" alt="Yurt Gezilerinde Halkla İç İçe Sohbet Ederken" />
         </div>
         <div class="card-body">
           <span class="cat-pill">Halk Adamı ve Başöğretmen</span>
@@ -408,11 +362,9 @@
         </div>
       </article>
 
-      <!-- 8 -->
-      <article class="card" data-cat="halk" data-id="foto8">
+      <article class="card" data-cat="halk">
         <div class="media-box">
-          <div class="placeholder-note">8. Fotoğraf: Çocuklarla ve Gençlerle Bir Arada</div>
-          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+          <img src="foto8.jpg" alt="Çocuklarla ve Gençlerle Bir Arada" />
         </div>
         <div class="card-body">
           <span class="cat-pill">Halk Adamı ve Başöğretmen</span>
@@ -422,11 +374,9 @@
         </div>
       </article>
 
-      <!-- 9 -->
-      <article class="card" data-cat="halk" data-id="foto9">
+      <article class="card" data-cat="halk">
         <div class="media-box">
-          <div class="placeholder-note">9. Fotoğraf: Gündelik Yaşamdan, Doğa ve Sanat İçinde</div>
-          <label class="upload-label">Fotoğraf Seç<input type="file" accept="image/*"></label>
+          <img src="foto9.jpg" alt="Gündelik Yaşamdan, Doğa ve Sanat İçindeki Hâli" />
         </div>
         <div class="card-body">
           <span class="cat-pill">Halk Adamı ve Başöğretmen</span>
@@ -481,46 +431,12 @@
       });
     });
 
-    function renderImage(card, dataUrl) {
-      const box = card.querySelector(".media-box");
-      let img = box.querySelector("img");
-      const note = box.querySelector(".placeholder-note");
-      if (note) note.remove();
-      if (!img) {
-        img = document.createElement("img");
-        img.addEventListener("click", () => {
-          document.getElementById("lightbox-img").src = img.src;
-          document.getElementById("lightbox").classList.add("open");
-        });
-        box.prepend(img);
-      }
-      img.src = dataUrl;
-    }
-
-    cards.forEach((card) => {
-      const saved = localStorage.getItem("ataturk_sergi_" + card.dataset.id);
-      if (saved) renderImage(card, saved);
-    });
-
-    document.querySelectorAll(".upload-label input").forEach((input) => {
-      input.addEventListener("change", (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-        const card = input.closest(".card");
-        const reader = new FileReader();
-        reader.onload = (ev) => {
-          const dataUrl = ev.target.result;
-          renderImage(card, dataUrl);
-          try {
-            localStorage.setItem("ataturk_sergi_" + card.dataset.id, dataUrl);
-          } catch (err) {
-            console.warn("Depolama sınırı aşıldı, fotoğraf bu oturumda görüntülenecek.");
-          }
-        };
-        reader.readAsDataURL(file);
+    document.querySelectorAll(".media-box img").forEach((img) => {
+      img.addEventListener("click", () => {
+        document.getElementById("lightbox-img").src = img.src;
+        document.getElementById("lightbox").classList.add("open");
       });
     });
   </script>
 </body>
 </html>
-```[cite: 9]

@@ -80,7 +80,7 @@
       margin-bottom: 12px;
     }
 
-    .filter-btn {
+    .filter-btn, .nav-link-btn {
       border: 1px solid var(--border);
       background: var(--surface);
       color: var(--ink);
@@ -89,10 +89,13 @@
       font-size: 0.95rem;
       font-weight: 600;
       cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
       transition: all 0.3s var(--ease);
     }
 
-    .filter-btn:hover {
+    .filter-btn:hover, .nav-link-btn:hover {
       transform: translateY(-2px);
       border-color: var(--accent);
       box-shadow: 0 6px 18px rgba(27, 34, 44, 0.08);
@@ -203,8 +206,64 @@
       text-align: justify;
     }
 
+    .biography-section {
+      margin-top: 56px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .biography-section h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .biography-intro {
+      color: var(--muted);
+      margin-bottom: 28px;
+      font-size: 1rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      border-left: 4px solid var(--accent);
+      background: #faf8f3;
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+    }
+
+    .timeline-year {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.08rem;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .timeline-item p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-align: justify;
+    }
+
     .message-box {
-      margin-top: 52px;
+      margin-top: 36px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-left: 6px solid var(--accent);
@@ -273,6 +332,7 @@
       <button class="filter-btn" data-filter="mucadele">Millî Mücadele ve Liderlik</button>
       <button class="filter-btn" data-filter="cumhuriyet">Cumhuriyet ve İnkılaplar</button>
       <button class="filter-btn" data-filter="halk">Halk Adamı ve Başöğretmen</button>
+      <a class="nav-link-btn" href="#hayati">Atatürk’ün Hayatı</a>
     </div>
   </header>
 
@@ -387,6 +447,40 @@
       </article>
     </div>
 
+    <section class="biography-section" id="hayati">
+      <span class="tag">YAŞAM ÖYKÜSÜ</span>
+      <h2>Atatürk’ün Hayatı</h2>
+      <p class="biography-intro">
+        Mustafa Kemal Atatürk’ün çocukluk yıllarından Millî Mücadele’ye, Cumhuriyet’in kuruluşundan çağdaşlaşma adımlarına uzanan yaşam yolculuğu:
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">1881 – 1905</span>
+          <h3>Doğumu, Çocukluğu ve Askerî Eğitim Yılları</h3>
+          <p>1881 yılında Selanik’te dünyaya geldi. Eğitim hayatına farklı okullarda başladıktan sonra askerliğe olan ilgisiyle Selanik Askerî Rüştiyesi, Manastır Askerî İdadisi, Harp Okulu ve Harp Akademisi’nde okudu; 1905 yılında kurmay yüzbaşı rütbesiyle akademiden mezun oldu.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-year">1905 – 1918</span>
+          <h3>Görev Yılları ve Birinci Dünya Savaşı Cepheleri</h3>
+          <p>Genç subaylık döneminde Osmanlı Devleti’nin çeşitli bölgelerinde görev aldı. Trablusgarp ve Balkan Savaşları’nın ardından Birinci Dünya Savaşı’nda Çanakkale Cephesi’nde Anafartalar Grubu Komutanı olarak gösterdiği başarılarla geniş kitlelerce tanındı; daha sonra Kafkas ve Suriye-Filistin cephelerinde görev yaptı.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-year">1919 – 1922</span>
+          <h3>Millî Mücadele ve Kurtuluş Savaşı</h3>
+          <p>19 Mayıs 1919’da Samsun’a çıkarak bağımsızlık mücadelesini başlattı. Amasya Genelgesi, Erzurum ve Sivas Kongreleri ile ulusal direnişi örgütledi; Türkiye Büyük Millet Meclisi’nin açılmasının ardından Sakarya Meydan Muharebesi ve Büyük Taarruz ile yurdun işgalden kurtarılmasına önderlik etti.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-year">1923 – 1938</span>
+          <h3>Cumhuriyetin İlanı ve Çağdaşlaşma Reformları</h3>
+          <p>29 Ekim 1923’te Cumhuriyet’i ilan ederek Türkiye Cumhuriyeti’nin ilk Cumhurbaşkanı seçildi. Hukuk, eğitim, yazı, ekonomi ve toplumsal yaşam alanlarında gerçekleştirdiği inkılaplarla modern bir devlet yapısının temellerini attı; “Yurtta sulh, cihanda sulh” ilkesini dış politikanın esası kıldı ve 10 Kasım 1938’de İstanbul’da vefat etti.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="message-box">
       <h3>Bu Genel Ağ Adresinin Amacı ve Ziyaretçilere Mesajı</h3>
       <p>
@@ -415,28 +509,3 @@
     const cards = document.querySelectorAll(".card");
 
     buttons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        buttons.forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        const filter = btn.dataset.filter;
-
-        cards.forEach((card) => {
-          const match = filter === "all" || card.dataset.cat === filter;
-          card.classList.toggle("hidden", !match);
-          if (match) {
-            card.classList.remove("visible");
-            requestAnimationFrame(() => setTimeout(() => card.classList.add("visible"), 40));
-          }
-        });
-      });
-    });
-
-    document.querySelectorAll(".media-box img").forEach((img) => {
-      img.addEventListener("click", () => {
-        document.getElementById("lightbox-img").src = img.src;
-        document.getElementById("lightbox").classList.add("open");
-      });
-    });
-  </script>
-</body>
-</html>

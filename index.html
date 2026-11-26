@@ -126,16 +126,11 @@
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
-      opacity: 0;
-      transform: translateY(22px);
-      transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), opacity 0.55s var(--ease);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card.visible {
       opacity: 1;
       transform: translateY(0);
+      transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover {
@@ -494,17 +489,6 @@
   </div>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, idx) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add("visible"), idx * 60);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll(".card").forEach((card) => observer.observe(card));
-
     const buttons = document.querySelectorAll(".filter-btn");
     const cards = document.querySelectorAll(".card");
 
@@ -517,10 +501,6 @@
         cards.forEach((card) => {
           const match = filter === "all" || card.dataset.cat === filter;
           card.classList.toggle("hidden", !match);
-          if (match) {
-            card.classList.remove("visible");
-            requestAnimationFrame(() => setTimeout(() => card.classList.add("visible"), 40));
-          }
         });
       });
     });
